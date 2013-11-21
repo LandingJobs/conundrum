@@ -1,0 +1,25 @@
+.row
+  .col-sm-12
+    .page-header
+      h2 = @question.skill_test.title
+
+      h4 = "Question #{@question_number}/#{@question.skill_test.questions.count}"
+      - if @question_number > 1
+        ' You have wasted
+        =' "#{'%02i' % @time_taken[:minutes]}:#{'%02i' % @time_taken[:seconds]}"
+        | so far.
+
+.row
+  .col-sm-12
+    #question
+      = m @question.question_text
+    #answers
+      = simple_form_for [@submitted_answer.test_run, @submitted_answer] do |f|
+
+        = f.hidden_field :test_run_id, value: @submitted_answer.test_run.id
+        = f.hidden_field :question_number, value: @submitted_answer.question_number
+
+        = f.collection_check_boxes :answer_ids, @question.answers, :id, :answer_text, {:item_wrapper_class => 'checkbox'}
+
+        = f.button :submit, 'Next', data: { disable_with: 'Saving' } ,class:'btn-success'
+

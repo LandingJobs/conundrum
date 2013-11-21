@@ -1,0 +1,13 @@
+
+Results for <%= @test_run.skill_test.title %>
+
+Total score: <%= number_to_percentage(@test_run.score, precision:2)%>
+Time taken: <%= "#{'%02i' % @time_taken[:minutes]}:#{'%02i' % @time_taken[:seconds]}" %>
+
+<% @test_run.submitted_answers.each do |a| %>
+    Question <%= a.question_number %>
+      Score: <%= a.score %>/<%= a.max_score %>
+    <% if a.wrong_answers? %>
+      Wrong answers: <%= a.wrong_answers %>
+    <% end %>
+<% end %>

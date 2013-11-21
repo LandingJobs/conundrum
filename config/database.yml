@@ -1,0 +1,18 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: conundrum_dev
+  pool: 5
+  username: conundrum
+  password: conundrum
+
+test: &test
+  adapter: postgresql
+  encoding: unicode
+  database: conundrum_test
+  pool: 5
+  username: conundrum
+  password: conundrum
+
+cucumber:
+  <<: *test

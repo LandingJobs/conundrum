@@ -1,0 +1,24 @@
+.row
+  .col-sm-12
+    .jumbotron
+      #test-title
+        h3 = @skill_test.title
+
+      #summary
+        p
+          ' This test has
+          =' @skill_test.questions.count
+          ' questions.
+        p
+          ' You should complete this test in less than
+          =' @skill_test.time_limit
+          | minutes.
+.row
+  .col-sm-8
+    #instructions
+      = m @skill_test.instructions
+
+  .col-sm-4
+    = simple_form_for @test_run do |f|
+      = f.hidden_field :skill_test_id, value: @skill_test.id
+      = f.button :submit, 'Start Test', class:'btn-success btn-block btn-lg', id:'start-test'

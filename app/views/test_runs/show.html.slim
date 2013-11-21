@@ -1,0 +1,15 @@
+
+.page-header
+  h2 = @test_run.skill_test.title
+
+.row
+  .col-sm-6
+    p.lead
+      ' You took
+      =' total_test_time(@test_run)
+      ' out of
+      =' @test_run.skill_test.time_limit
+      | minutes.
+.row
+  .col-sm-12
+    p Thank you. You should receive an email with your score in a few moments.
