@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def m(text)
     require 'redcarpet_pygmentize'
-    renderer = PygmentizeHTML.new(hard_wrap:true, filter_html:true)
+    renderer = PygmentizeHTML.new(hard_wrap:true)
     extensions = { space_after_headers: true,
                      no_intra_emphasis: true,
                            superscript: true,
