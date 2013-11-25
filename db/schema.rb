@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20131115000536) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "answers", force: true do |t|
-    t.string   "answer_text",                 null: false
+    t.text     "answer_text",                 null: false
     t.boolean  "is_correct",  default: false, null: false
     t.integer  "question_id"
     t.datetime "created_at"

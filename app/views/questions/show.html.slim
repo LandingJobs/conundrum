@@ -19,7 +19,7 @@
         = f.hidden_field :test_run_id, value: @submitted_answer.test_run.id
         = f.hidden_field :question_number, value: @submitted_answer.question_number
 
-        = f.collection_check_boxes :answer_ids, @question.answers, :id, :answer_text, {:item_wrapper_class => 'checkbox'}
+        = f.collection_check_boxes :answer_ids, @question.answers, :id, :answer_text, {:item_wrapper_class => 'checkbox'} { |box| box.label { box.check_box + m(box.text)}}
 
         = f.button :submit, 'Next', data: { disable_with: 'Saving' } ,class:'btn-success'
 
