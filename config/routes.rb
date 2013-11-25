@@ -5,7 +5,7 @@ Conundrum::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'skill_tests#show', id:1
+  root 'skill_tests#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -13,7 +13,7 @@ Conundrum::Application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
-  resources :skill_tests, only: [:show]
+  resources :skill_tests, only: [:index, :show]
 
   resources :test_runs, only: [:create, :update, :show] do
     get :finish, on: :member

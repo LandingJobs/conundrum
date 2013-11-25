@@ -8,6 +8,19 @@ html
   meta name="viewport" content="width=device-width, initial-scale=1.0"
 
   body
+    header
+      nav.navbar.navbar-default role="navigation"
+        .container
+          .navbar-header
+            button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"
+              span class="sr-only" Toggle navigation
+              span class="icon-bar"
+              span class="icon-bar"
+              span class="icon-bar"
+            = link_to 'Conundrum', root_url, class:'navbar-brand'
+          .collapse.navbar-collapse#navbar-collapse-1
+            ul.nav.navbar-nav
+              li{class="#{'active' if current_page?(root_path) || current_page?(skill_tests_path)}"} = link_to 'Skill Tests', skill_tests_path
     .container
       = yield
 
