@@ -17,6 +17,8 @@ gem 'turbolinks', '~> 1.3.0'
 gem 'simple_form'
 gem 'time_difference'
 gem 'sucker_punch'
+gem 'omniauth'
+gem 'omniauth-github'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 

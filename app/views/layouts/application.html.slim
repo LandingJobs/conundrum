@@ -21,6 +21,8 @@ html
           .collapse.navbar-collapse#navbar-collapse-1
             ul.nav.navbar-nav
               li{class="#{'active' if current_page?(root_path) || current_page?(skill_tests_path)}"} = link_to 'Skill Tests', skill_tests_path
+            ul.nav.navbar-nav.navbar-right
+              li = link_to 'Login with github', user_omniauth_authorize_path(:github)
     .container
       = yield
 
