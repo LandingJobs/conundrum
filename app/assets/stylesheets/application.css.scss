@@ -1,5 +1,18 @@
 
 @import "bootstrap";
+@import 'font-awesome';
+@import "social-buttons-3";
+@import "pygments";
 @import "skill_tests";
 @import "questions";
-@import "pygments";
+@import "users";
+
+.navbar-right {
+  img {
+    margin-top: 5px;
+  }
+  li {
+    margin-left: 5px;
+    margin-right: 0;
+  }
+}

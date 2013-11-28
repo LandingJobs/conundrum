@@ -1,5 +1,11 @@
 Conundrum::Application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
+  devise_scope :user do
+    get "users/sign_in" => "users#sign_in" ,as: :new_user_session
+    delete "/users/sign_out" => "devise/sessions#destroy", as: :destroy_user_session
+  end
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.

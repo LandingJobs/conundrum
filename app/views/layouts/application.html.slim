@@ -22,7 +22,14 @@ html
             ul.nav.navbar-nav
               li{class="#{'active' if current_page?(root_path) || current_page?(skill_tests_path)}"} = link_to 'Skill Tests', skill_tests_path
             ul.nav.navbar-nav.navbar-right
-              li = link_to 'Login with github', user_omniauth_authorize_path(:github)
+              - if user_signed_in?
+                li
+                  = image_tag current_user.avatar_url, class:'img-circle'
+                li.navbar-text
+                  = current_user.name
+                li = link_to 'Logout', destroy_user_session_path, :method => :delete
+              - else
+                li = link_to 'Login with github', user_omniauth_authorize_path(:github)
     .container
       = yield
 
