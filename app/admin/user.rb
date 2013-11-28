@@ -18,5 +18,5 @@ ActiveAdmin.register User do
   #  permitted << :other if resource.something?
   #  permitted
   # end
-
+  permit_params :name, :email, :avatar_url
 end
