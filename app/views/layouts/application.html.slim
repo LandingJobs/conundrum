@@ -32,7 +32,7 @@ html
                   li = link_to 'Logout', destroy_user_session_path, :method => :delete
                 - else
                   li = link_to 'Login with github', user_omniauth_authorize_path(:github)
-                = link_to image_tag( '/assets/jobbox-logo.png'), 'http://jobbox.io', id:'jobbox-img'
+                = link_to '', 'http://jobbox.io', id:'jobbox-img', class:'navbar-brand'
       #main
         .container
           = yield
