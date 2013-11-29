@@ -24,11 +24,9 @@ class TestRunsController < ApplicationController
 
   def show
     @test_run = current_user.test_runs.find(params[:id])
-    redirect_to finish_test_run_path(@test_run) if @test_run.email.nil?
-  end
-
-  def finish
-    @test_run = current_user.test_runs.find(params[:id])
+    if @test_run.finished_at.nil?
+      redirect_to question_number_for_test_run_path(@test_run, @test_run.submitted_answers.count+1)
+    end
   end
 
   private
