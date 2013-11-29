@@ -1,4 +1,5 @@
 class TestRunsController < ApplicationController
+  before_filter :authenticate_user!
 
   def create
     skill_test = SkillTest.find params[:test_run][:skill_test_id]

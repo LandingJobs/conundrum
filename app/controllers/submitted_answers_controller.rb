@@ -1,4 +1,5 @@
 class SubmittedAnswersController < ApplicationController
+  before_filter :authenticate_user!
 
   def create
     test_run = TestRun.find(params[:test_run_id])
