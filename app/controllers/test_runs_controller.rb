@@ -11,17 +11,6 @@ class TestRunsController < ApplicationController
     end
   end
 
-  def update
-    @test_run = TestRun.find(params[:id])
-
-    if @test_run.update_attributes(email: params[:test_run][:email])
-      UserResultsMailJob.new.async.perform(@test_run.id)
-      redirect_to test_run_path @test_run
-    else
-      render 'finish'
-    end
-  end
-
   def show
     @test_run = current_user.test_runs.find(params[:id])
     if @test_run.finished_at.nil?

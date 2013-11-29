@@ -22,7 +22,7 @@ Conundrum::Application.routes.draw do
 
   resources :skill_tests, only: [:index, :show]
 
-  resources :test_runs, only: [:create, :update, :show] do
+  resources :test_runs, only: [:create, :show] do
     get ':question_number', on: :member, to: 'questions#show',
                             as: :question_number_for,  constraint: { question_number: /\d+/ }
 
