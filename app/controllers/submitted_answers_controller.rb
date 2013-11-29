@@ -21,7 +21,7 @@ class SubmittedAnswersController < ApplicationController
         test_run.save
         InternalResultsMailJob.new.async.perform(test_run.id)
 
-        redirect_to finish_test_run_path(test_run)
+        redirect_to test_run_path(test_run)
       else
         redirect_to question_number_for_test_run_path(test_run, question_number+1)
       end
