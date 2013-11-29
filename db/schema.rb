@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131128172045) do
+ActiveRecord::Schema.define(version: 20131129152838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,9 +52,9 @@ ActiveRecord::Schema.define(version: 20131128172045) do
   create_table "answers", force: true do |t|
     t.text     "answer_text",                 null: false
     t.boolean  "is_correct",  default: false, null: false
-    t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "question_id"
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
@@ -67,15 +67,16 @@ ActiveRecord::Schema.define(version: 20131128172045) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
   create_table "questions", force: true do |t|
     t.text     "question_text", null: false
-    t.integer  "skill_test_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "skill_test_id"
   end
 
   add_index "questions", ["skill_test_id"], name: "index_questions_on_skill_test_id", using: :btree
@@ -83,18 +84,18 @@ ActiveRecord::Schema.define(version: 20131128172045) do
   create_table "skill_tests", force: true do |t|
     t.string   "title",                     null: false
     t.text     "instructions",              null: false
-    t.integer  "time_limit",   default: 15, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "time_limit",   default: 15, null: false
   end
 
   create_table "submitted_answers", force: true do |t|
+    t.integer  "test_run_id"
+    t.integer  "question_id"
     t.integer  "question_number", null: false
     t.integer  "score",           null: false
     t.integer  "max_score",       null: false
     t.text     "wrong_answers"
-    t.integer  "test_run_id"
-    t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -104,14 +105,16 @@ ActiveRecord::Schema.define(version: 20131128172045) do
 
   create_table "test_runs", force: true do |t|
     t.string   "email"
-    t.float    "score"
-    t.datetime "finished_at"
     t.integer  "skill_test_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "finished_at"
+    t.float    "score"
+    t.integer  "user_id"
   end
 
-  add_index "test_runs", ["skill_test_id"], name: "index_test_runs_on_skill_test_id", using: :btree
+  add_index "test_runs", ["skill_test_id"], name: "index_test_runs_on_tech_test_id", using: :btree
+  add_index "test_runs", ["user_id"], name: "index_test_runs_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name",                            null: false

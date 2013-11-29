@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
 
   devise :omniauthable, :rememberable, :trackable
   has_many :authentications
+  has_many :test_runs
 
   def self.from_omniauth(auth, current_user)
-    authorization = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s, :token => auth.credentials.token, :secret => auth.credentials.secret).first_or_initialize
+    authorization = Authentication.where(:provider => auth.provider, :uid => auth.uid.to_s, :token => auth.credentials.token, :secret => auth.credentials.secret, username: auth.info.nickname).first_or_initialize
     if authorization.user.blank?
       user = current_user.nil? ? User.where('email = ?', auth["info"]["email"]).first : current_user
       if user.blank?

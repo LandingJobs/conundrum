@@ -2,7 +2,7 @@ class SubmittedAnswersController < ApplicationController
   before_filter :authenticate_user!
 
   def create
-    test_run = TestRun.find(params[:test_run_id])
+    test_run = current_user.test_runs.find(params[:test_run_id])
     question_number = params[:submitted_answer][:question_number].to_i
     @question = test_run.skill_test.questions[question_number-1]
 
