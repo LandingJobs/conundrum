@@ -4,6 +4,4 @@ class TestRun < ActiveRecord::Base
   has_many :submitted_answers
 
   belongs_to :user
-
-  validates :email, :format => { :with => /\A[^@]+@[^@]+\z/i, allow_nil: true }
 end
