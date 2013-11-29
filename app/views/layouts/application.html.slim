@@ -2,35 +2,46 @@ doctype html
 html
   head
     title Conundrum
-  = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-  = javascript_include_tag "application", "data-turbolinks-track" => true
-  = csrf_meta_tags
-  meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = favicon_link_tag '/favicon.ico'
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
 
   body
-    header
-      nav.navbar.navbar-default role="navigation"
+    #wrapper
+      header
+        nav.navbar.navbar-default role="navigation"
+          .container
+            .navbar-header
+              button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"
+                span class="sr-only" Toggle navigation
+                span class="icon-bar"
+                span class="icon-bar"
+                span class="icon-bar"
+              = link_to 'Conundrum', root_url, class:'navbar-brand'
+            .collapse.navbar-collapse#navbar-collapse-1
+              ul.nav.navbar-nav
+                li{class="#{'active' if current_page?(root_path) || current_page?(skill_tests_path)}"} = link_to 'Skill Tests', skill_tests_path
+              ul.nav.navbar-nav.navbar-right
+                - if user_signed_in?
+                  li
+                    = image_tag current_user.avatar_url, class:'img-circle'
+                  li.navbar-text
+                    = current_user.name
+                  li = link_to 'Logout', destroy_user_session_path, :method => :delete
+                - else
+                  li = link_to 'Login with github', user_omniauth_authorize_path(:github)
+                = link_to image_tag( '/assets/jobbox-logo.png'), 'http://jobbox.io', id:'jobbox-img'
+      #main
         .container
-          .navbar-header
-            button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1"
-              span class="sr-only" Toggle navigation
-              span class="icon-bar"
-              span class="icon-bar"
-              span class="icon-bar"
-            = link_to 'Conundrum', root_url, class:'navbar-brand'
-          .collapse.navbar-collapse#navbar-collapse-1
-            ul.nav.navbar-nav
-              li{class="#{'active' if current_page?(root_path) || current_page?(skill_tests_path)}"} = link_to 'Skill Tests', skill_tests_path
-            ul.nav.navbar-nav.navbar-right
-              - if user_signed_in?
-                li
-                  = image_tag current_user.avatar_url, class:'img-circle'
-                li.navbar-text
-                  = current_user.name
-                li = link_to 'Logout', destroy_user_session_path, :method => :delete
-              - else
-                li = link_to 'Login with github', user_omniauth_authorize_path(:github)
-    .container
-      = yield
+          = yield
 
+      footer
+        p.text-center
+          small
+            ' Powered by
+            = link_to 'JOBBBOX', 'http://jobbox.io'
+            ' .
+            = link_to 'Fork us on Github', 'https://github.com/JOBBOX/conundrum'
 

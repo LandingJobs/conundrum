@@ -7,6 +7,29 @@
 @import "questions";
 @import "users";
 
+
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  min-height:100%;
+  position: relative;
+}
+
+#main {
+  padding-bottom:70px;   /* Height of the footer + 30px*/
+}
+
+footer {
+  position: absolute;
+  margin-top: -40px; /* negative value of footer height */
+  height: 40px;
+  clear: both;
+  width: 100%;
+  bottom: 0;
+}
+
 .navbar-right {
   img {
     margin-top: 5px;
@@ -14,5 +37,12 @@
   li {
     margin-left: 5px;
     margin-right: 0;
+  }
+}
+
+#jobbox-img {
+  float: right;
+  img {
+    margin: 0;
   }
 }
