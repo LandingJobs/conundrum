@@ -13,7 +13,7 @@ class SubmittedAnswersController < ApplicationController
 
     calculate_answer_score(params[:submitted_answer][:answer_ids])
 
-    if @sa.save!
+    if @sa.save
       if question_number == test_run.skill_test.questions.count
 
         test_run.score = test_run.submitted_answers.inject(0) { |res,x| res += (x.score.fdiv x.max_score) } / test_run.skill_test.questions.count * 100
@@ -26,7 +26,7 @@ class SubmittedAnswersController < ApplicationController
         redirect_to question_number_for_test_run_path(test_run, question_number+1)
       end
     else
-      redirect_to question_number_for_test_run_path(test_run, question_number)
+      redirect_to question_number_for_test_run_path(test_run, test_run.submitted_answers.count+1)
     end
   end
 
