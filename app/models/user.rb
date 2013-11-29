@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
         user = User.new
         user.name = auth.info.name
         user.email = auth.info.email
-        user.avatar_url = auth.info.avatar_url + "&s=40" if auth.info.avatar_url
+        user.avatar_url = auth.info.image + "&s=40"
       end
       authorization.user = user
       authorization.save
