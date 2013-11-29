@@ -1,6 +1,11 @@
 
 Results for <%= @test_run.skill_test.title %>
 
+Submitted by
+<%= @test_run.user.name %>
+<%= @test_run.user.email %>
+<%= "http://github.com/#{@test_run.user.authentications.where(provider: :github).first.username}" %>
+
 Total score: <%= number_to_percentage(@test_run.score, precision:2)%>
 Time taken: <%= "#{'%02i' % @time_taken[:minutes]}:#{'%02i' % @time_taken[:seconds]}" %>
 
