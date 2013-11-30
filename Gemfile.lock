@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 4818b5b63449008330870fac5df4e37bafaf00a6
+  revision: f59be4d5c55e802354df679a35d738876540d7b2
   specs:
     activeadmin (1.0.0.pre)
       arbre (~> 1.0)
@@ -273,7 +273,7 @@ GEM
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    simple_form (3.0.0)
+    simple_form (3.0.1)
       actionpack (>= 4.0.0, < 4.1)
       activemodel (>= 4.0.0, < 4.1)
     simplecov (0.8.2)
@@ -308,7 +308,7 @@ GEM
     tilt (1.4.1)
     time_difference (0.3.2)
       activesupport
-    timecop (0.6.3)
+    timecop (0.7.0)
     timers (1.1.0)
     treetop (1.4.15)
       polyglot
