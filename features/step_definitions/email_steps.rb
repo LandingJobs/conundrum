@@ -1,4 +1,4 @@
-Given(/^a user has completed a skill test$/) do
+Given(/^the user has completed a skill test$/) do
   @skill_test = Fabricate(:skill_test) do
     questions(count: 2)
   end

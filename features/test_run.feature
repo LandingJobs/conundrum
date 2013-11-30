@@ -3,6 +3,10 @@ Feature: Test run
   As a user
   I want do a skill test
 
+  Background:
+    Given 1 user
+    And I am logged in as that user
+
   Scenario: Start skill test
     Given 1 skill test
     And I'm in the skill test's frontpage

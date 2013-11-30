@@ -51,7 +51,7 @@ When(/^I take (\d+) seconds to complete the skill test with 1 correct answer$/) 
 end
 
 Then(/^my score should be (\d+\.\d+)%$/) do |score|
-  expect(TestRun.last.score.to_s).to eq score
+  expect(page).to have_content(score)
 end
 
 Then(/^my time should be (\d+:\d+)$/) do |time|

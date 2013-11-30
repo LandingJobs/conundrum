@@ -1,3 +1,4 @@
 Fabricator(:authentication) do
-  user nil
+  username { Faker::Internet.user_name }
+  provider :github
 end

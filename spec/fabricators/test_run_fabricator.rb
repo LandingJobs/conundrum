@@ -1,6 +1,6 @@
 Fabricator(:test_run) do
-  email     { Faker::Internet.email }
   skill_test
+  user
 end
 
 Fabricator(:finished_test_run, from: :test_run) do
