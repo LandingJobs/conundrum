@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
         user = User.new
         user.name = auth.info.name
         user.email = auth.info.email
-        user.avatar_url = auth.info.image + "&s=40"
+        user.avatar_url = auth.info.image
+        user.avatar_url += "&s=40" if auth.provider == :github
       end
       authorization.user = user
       authorization.save

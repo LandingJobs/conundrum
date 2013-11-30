@@ -31,7 +31,13 @@ html
                       = current_user.name
                   li = link_to 'Logout', destroy_user_session_path, :method => :delete
                 - else
-                  li = link_to 'Login with github', user_omniauth_authorize_path(:github)
+                  li.dropdown
+                    a.dropdown-toggle href="#" data-toggle="dropdown"
+                      ' Login
+                      b.caret
+                    ul.dropdown-menu
+                      li = link_to 'Login with Github', user_omniauth_authorize_path(:github)
+                      li = link_to 'Login with LinkedIn', user_omniauth_authorize_path(:linkedin)
                 = link_to '', 'http://jobbox.io', id:'jobbox-img', class:'navbar-brand'
       #main
         .container

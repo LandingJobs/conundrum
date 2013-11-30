@@ -20,6 +20,7 @@ gem 'time_difference'
 gem 'sucker_punch'
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-linkedin'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
