@@ -1,0 +1,24 @@
+.row
+  .page-header.col-sm-12
+    h2 My scores
+    br
+.row
+  - if current_user.test_runs.empty?
+    .col-sm-12
+      p You haven't taken any tests yet.
+
+  - current_user.test_runs.each do |test|
+    .col-sm-4
+      .testscore.well
+        h4
+          - if test.score
+            =' link_to test.skill_test.title, test.skill_test
+          - else
+            =' link_to test.skill_test.title, test
+          small = test.created_at.to_formatted_s(:long)
+        p
+          - if test.score
+            ' Your score:
+            = number_to_percentage(test.score, precision:2)
+          - else
+            | You haven't finished this test yet.

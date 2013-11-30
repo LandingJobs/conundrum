@@ -31,12 +31,16 @@ footer {
 }
 
 .navbar-right {
-  img {
-    margin-top: 5px;
-  }
   li {
     margin-left: 5px;
     margin-right: 0;
+  }
+  li.current-user a {
+    padding: 0;
+    margin: 6px 0 0 0;
+    img {
+      margin-right: 5px;
+    }
   }
 }
 

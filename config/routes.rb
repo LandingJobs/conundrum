@@ -20,6 +20,8 @@ Conundrum::Application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
+  get 'account' => 'users#show', as: :current_user_account
+
   resources :skill_tests, only: [:index, :show]
 
   resources :test_runs, only: [:create, :show] do
