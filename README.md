@@ -13,7 +13,7 @@ About
 
 Conundrum was originally written by [Pedro Moreira](https://github.com/pmor) and is maintained by Pedro Moreira and [JOBBOX](http://jobbox.io)
 
-![JOBBOX](http://blog.jobbox.io/assets/themes/jobbox/img/jobbox-logo.png).
+![JOBBOX](https://dl.dropboxusercontent.com/u/17994193/logo/logo_horizontal.png).
 
 License
 -------
