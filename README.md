@@ -11,9 +11,9 @@ Conundrum is a simple rails app for online skill tests.
 About
 -----
 
-Conundrum was originally written by [Pedro Moreira](https://github.com/pmor) and is maintained by Pedro Moreira and [JOBBOX](http://jobbox.io)
+Conundrum was originally written by [Pedro Moreira](https://github.com/pmor) and is maintained by Pedro Moreira and [JOBBOX](http://jobbox.io).
 
-![JOBBOX](https://dl.dropboxusercontent.com/u/17994193/logo/logo_horizontal.png)
+<img src="https://dl.dropboxusercontent.com/u/17994193/logo/logo_horizontal.png" width="270" height="45">
 
 License
 -------
