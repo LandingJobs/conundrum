@@ -16,4 +16,4 @@ Conundrum was originally written by [Pedro Moreira](https://github.com/pmor) and
 License
 -------
 
-Conundrum is Copyright (c) 2013 JOBBOX. Released under the [MIT License](http://www.opensource.org/licenses/MIT).
+Conundrum is Copyright (c) 2014 JOBBOX. Released under the [MIT License](http://www.opensource.org/licenses/MIT).
